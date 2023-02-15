@@ -14,18 +14,24 @@ func _physics_process(_delta: float) -> void:
   
   # Detect input
   if Input.is_action_pressed("ball_charge") && !is_moving:
-    if (!is_charging):
+    if (!is_charging): # Store time on first press (charging_time)
       charging_time = OS.get_ticks_msec()
       is_charging = true
     else:
-      print("Charging: " + String(calculate_force(OS.get_ticks_msec() - charging_time)))
+      var current_force = calculate_force(OS.get_ticks_msec() - charging_time)
+      $BallVector.update_force(Vector2(current_force / 2.5, 0).rotated(deg2rad($Camera2D.rotation_degrees - 90)))
+      print("Charging: " + String(current_force))
     
   if Input.is_action_just_released("ball_charge") && !is_moving:
     var camera_rotation = $Camera2D.rotation_degrees - 90
     var force = calculate_force(OS.get_ticks_msec() - charging_time)
+
     print("Shooting! Force: " + String(force) + " at " + String(camera_rotation) + " degrees")
     velocity = Vector2(cos(deg2rad(camera_rotation)) * force, sin(deg2rad(camera_rotation)) * force)
     is_charging = false
+
+    # Cleanup side effects
+    $BallVector.update_force(Vector2.ZERO)
 
 
   # Handle Camera
