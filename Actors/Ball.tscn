@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/Ball.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 13.0
+radius = 9.0
 
 [node name="Ball" type="KinematicBody2D"]
 collision_mask = 4

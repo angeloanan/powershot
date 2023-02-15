@@ -28,6 +28,10 @@ boot_splash/fullsize=false
 boot_splash/use_filter=false
 config/icon="res://icon.png"
 
+[autoload]
+
+BallData="*res://Autoload/BallData.tscn"
+
 [display]
 
 window/size/width=480
