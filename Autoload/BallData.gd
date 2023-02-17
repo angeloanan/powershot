@@ -21,3 +21,6 @@ func set_stroke_count(score: int) -> void:
 func reset() -> void:
   stroke_total = 1
   stroke_count = 1
+  
+func reset_count() -> void:
+  stroke_count = 1

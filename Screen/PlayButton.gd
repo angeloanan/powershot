@@ -5,4 +5,4 @@ func _on_pressed() -> void:
 
 func play_game() -> void:
   BallData.reset()
-  get_tree().change_scene("res://Levels/LevelTemplate.tscn")
+  get_tree().change_scene("res://Levels/Level1.tscn")

@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Golf Game"
-run/main_scene="res://Levels/LevelTemplate.tscn"
+run/main_scene="res://Screen/MainScreen.tscn"
 run/low_processor_mode=true
 boot_splash/show_image=false
 boot_splash/fullsize=false

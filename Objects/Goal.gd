@@ -8,9 +8,11 @@ func _get_configuration_warning() -> String:
   return ""
 
 func _on_body_entered(body:Node) -> void:
+  BallData.stroke_total += 1
   teleport()
 
 func teleport() -> void:
+  BallData.reset_count()
   get_tree().change_scene_to(NEXT_SCENE)
   
 
