@@ -1,35 +1,29 @@
 #include "Keyboard.h"
 
-const int JOYSTICK_X = A1;
 const int JOYSTICK_Y = A0;
-const int BUTTON_JOYSTICK = 2;
+const int RANGE_SENSOR = 13;
 
-const int BUTTON_A = 6;
-const int BUTTON_B = 5;
-const int BUTTON_X = 4;
-const int BUTTON_Y = 3;
+const int BUTTON_COIN = 7;
 
-const int BUTTON_START = 7;
-const int BUTTON_SELECT = 8;
+const int CAMERA_CW = 21;
+const int CAMERA_CCW = 20;
+const int CAMERA_PRECISE = 19;
 
 const int LED1 = 10;
 const int LED2 = 11;
 const int LED3 = 12;
 
-const int RANGE_SENSOR = 13;
-
-// A, B, X, Y, START, SELECT, JOYSTICK
-bool buttonStates[7] = {false, false, false, false, false, false, false};
-int joystickCoords[2] = {0, 0};
+// Camera CW, Camera CCW, Camera Precise
+bool buttonStates[3] = {false, false, false};
+int joystickCoords[1] = {0};
 bool isOn = false;
 
 void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
 
-  pinMode(BUTTON_A, INPUT);
-  pinMode(BUTTON_B, INPUT);
-  pinMode(BUTTON_X, INPUT);
-  pinMode(BUTTON_Y, INPUT);
+  pinMode(CAMERA_CW, INPUT);
+  pinMode(CAMERA_CCW, INPUT);
+  pinMode(CAMERA_PRECISE, INPUT);
 
   pinMode(LED1, OUTPUT);
   pinMode(LED2, OUTPUT);
@@ -42,16 +36,11 @@ void setup() {
 }
 
 void loop() {
-  buttonStates[0] = digitalRead(BUTTON_A);
-  buttonStates[1] = digitalRead(BUTTON_B);
-  buttonStates[2] = digitalRead(BUTTON_X);
-  buttonStates[3] = digitalRead(BUTTON_Y);
-  buttonStates[4] = digitalRead(BUTTON_START);
-  buttonStates[5] = digitalRead(BUTTON_SELECT);
-  buttonStates[6] = digitalRead(BUTTON_JOYSTICK);
+  buttonStates[0] = digitalRead(CAMERA_CW);
+  buttonStates[1] = digitalRead(CAMERA_CCW);
+  buttonStates[2] = digitalRead(CAMERA_PRECISE);
 
   // Get joystick coords
-  joystickCoords[0] = analogRead(JOYSTICK_X);
   joystickCoords[1] = analogRead(JOYSTICK_Y);
 
   // long range = calculateRangeCm();
@@ -74,8 +63,10 @@ void loop() {
     Keyboard.release(KEY_UP_ARROW);
   }
 
+  // Optional - Just makes input stabler
   delay(1);
-  debugPrint();
+
+  // debugPrint();
   // Serial.print("Range:");
   // Serial.println(range);
 }
