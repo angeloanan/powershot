@@ -12,7 +12,7 @@ func _on_body_entered(body:Node) -> void:
   teleport()
 
 func teleport() -> void:
-  BallData.reset_count()
+  BallData.round_reset()
   get_tree().change_scene_to(NEXT_SCENE)
   
 

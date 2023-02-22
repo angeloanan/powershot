@@ -5,6 +5,8 @@ export var MAX_SHOOTING_POWER := 600
 # Maximum amount of time player can charge (in ms)
 export var MAX_CHARGING_TIME := 3_000
 
+onready var initial_position = get_global_transform().origin
+
 var velocity := Vector2.ZERO
 var speed_modifier := 1.0
 
@@ -13,6 +15,8 @@ var is_in_water := false
 var printed := true
 var is_charging := false
 var charging_time: int
+
+var is_precise_button_pressed := false
 
 func _physics_process(_delta: float) -> void:
   # Clamping minimum speed to 2 px per sec
@@ -32,7 +36,14 @@ func _physics_process(_delta: float) -> void:
     var camera_rotation = $Camera2D.rotation_degrees - 90
     var force = calculate_force(OS.get_ticks_msec() - charging_time)
 
-    print("Shooting! Force: " + String(force) + " at " + String(camera_rotation) + " degrees")
+    print("")
+    print("Shooting!")
+    print("Force: " + String(force) + " at " + String(camera_rotation) + " degrees")
+    print("Powerups:")
+    print("- Power Ball: " + String(BallData.power_ball))
+    print("- Water Ball: " + String(BallData.water_ball))
+    print("")
+    
     velocity = Vector2(cos(deg2rad(camera_rotation)) * force, sin(deg2rad(camera_rotation)) * force)
     is_charging = false
 
@@ -54,13 +65,24 @@ func _physics_process(_delta: float) -> void:
 
   velocity *= (0.99 * speed_modifier)
 
-  # When ball has stopped moving
+  # When ball has stopped moving for the first time
   if !is_moving && !printed:
     BallData.stroke_count += 1;
     BallData.stroke_total += 1;
+    print("")
+    print("Not moving!")
+    print("Final velocity : " + String(velocity))
+    print("Is in water    : " + String(is_in_water))
+    print("")
+    print("Next shot: Stroke ", BallData.stroke_count)
+    print("")
     
-    print("Not moving! Final velocity: " + String(velocity))
-    print("Stroke number: ", BallData.stroke_count)
+    if is_in_water:
+      BallData.stroke_count += 2
+      self.global_position = initial_position
+      
+      print("Ball in water! Resetting stroke count")
+      print("")
     
     velocity = Vector2.ZERO
     printed = true
@@ -80,7 +102,6 @@ func set_speed_modifier(speed: float) -> void:
 
 func on_enter_sand(_body: Node) -> void:
   set_speed_modifier(0.95)
-  
   
 func on_leave_sand(_body:Node) -> void:
   set_speed_modifier(1.0)
