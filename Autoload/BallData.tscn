@@ -2,5 +2,6 @@
 
 [ext_resource path="res://Autoload/BallData.gd" type="Script" id=1]
 
+
 [node name="BallData" type="Node"]
 script = ExtResource( 1 )

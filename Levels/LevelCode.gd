@@ -6,3 +6,7 @@ func _physics_process(delta: float) -> void:
   var water = $Water
 
   
+
+
+func on_leave_sand(body):
+    pass # Replace with function body.
