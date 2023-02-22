@@ -87,7 +87,7 @@ func _physics_process(_delta: float) -> void:
     print("Next shot: Stroke ", BallData.stroke_count)
     print("")
     
-    if is_in_water:
+    if is_in_water && !BallData.water_ball:
       BallData.stroke_count += 2
       self.global_position = initial_position
       
