@@ -3,6 +3,7 @@ extends KinematicBody2D
 var MAX_SHOOTING_POWER := 600
 var MAX_CHARGING_TIME := 3_000
 var velocity := Vector2.ZERO
+var speed_modifier := 1.0
 
 var printed := true
 var is_charging := false
@@ -46,7 +47,7 @@ func _physics_process(_delta: float) -> void:
     velocity = velocity.bounce(collision.normal)
     print("Bonk! Velocity:" + String(velocity))
 
-  velocity *= 0.99
+  velocity *= (0.99 * speed_modifier)
 
   # When ball has stopped moving
   if !is_moving && !printed:
@@ -69,8 +70,12 @@ func calculate_force(charge_time: float, max_force = MAX_SHOOTING_POWER, max_tim
     force = max_force
   return force
 
-func set_velocity(v: Vector2) -> void:
-  velocity = v
+func set_speed_modifier(speed: float) -> void:
+  speed_modifier = speed
 
-func slowdown(speed: float) -> void:
-  velocity *= speed
+func on_enter_sand(_body: Node) -> void:
+  set_speed_modifier(0.9)
+  
+  
+func on_leave_sand(_body:Node) -> void:
+  set_speed_modifier(1.0)
