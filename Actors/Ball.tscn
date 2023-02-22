@@ -24,3 +24,6 @@ current = true
 [node name="BallVector" type="Node2D" parent="."]
 z_index = 10
 script = ExtResource( 3 )
+
+[node name="RayCast2D" type="RayCast2D" parent="BallVector"]
+collision_mask = 4
