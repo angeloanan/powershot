@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/ui_theme.tres" type="Theme" id=1]
 [ext_resource path="res://UserInterface/UserInterface.gd" type="Script" id=2]
+[ext_resource path="res://assets/Waterball.png" type="Texture" id=3]
+[ext_resource path="res://assets/Powerball.png" type="Texture" id=4]
 
 [node name="UserInterface" type="Control"]
 anchor_right = 1.0
@@ -37,3 +39,15 @@ margin_left = 32.0
 margin_top = -64.0
 margin_right = 224.0
 margin_bottom = -32.0
+
+[node name="PowerUpIcons" type="Node" parent="."]
+
+[node name="Waterball" type="Sprite" parent="PowerUpIcons"]
+visible = false
+position = Vector2( 384, 592 )
+texture = ExtResource( 3 )
+
+[node name="Powerball" type="Sprite" parent="PowerUpIcons"]
+visible = false
+position = Vector2( 432, 592 )
+texture = ExtResource( 4 )
