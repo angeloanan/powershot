@@ -27,3 +27,6 @@ func reset() -> void:
   
 func round_reset() -> void:
   stroke_count = 1
+  
+  water_ball = false
+  power_ball = false

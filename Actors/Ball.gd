@@ -29,12 +29,22 @@ func _physics_process(_delta: float) -> void:
       is_charging = true
     else:
       var current_force = calculate_force(OS.get_ticks_msec() - charging_time)
-      $BallVector.update_force(Vector2(current_force / 2.5, 0).rotated(deg2rad($Camera2D.rotation_degrees - 90)))
+      var ball_vector_divisor: int
+
+      if BallData.power_ball: 
+        ball_vector_divisor = 2
+      else:
+        ball_vector_divisor = 5
+      
+      
+      $BallVector.update_force(Vector2(current_force / ball_vector_divisor, 0).rotated(deg2rad($Camera2D.rotation_degrees - 90)))
       print("Charging: " + String(current_force))
     
   if Input.is_action_just_released("ball_charge") && !is_moving:
     var camera_rotation = $Camera2D.rotation_degrees - 90
     var force = calculate_force(OS.get_ticks_msec() - charging_time)
+    if BallData.power_ball:
+      force *= 2
 
     print("")
     print("Shooting!")
@@ -100,11 +110,15 @@ func calculate_force(charge_time: float, max_force = MAX_SHOOTING_POWER, max_tim
 func set_speed_modifier(speed: float) -> void:
   speed_modifier = speed
 
+# Sand
+
 func on_enter_sand(_body: Node) -> void:
   set_speed_modifier(0.95)
   
 func on_leave_sand(_body:Node) -> void:
   set_speed_modifier(1.0)
+
+# Water
 
 func on_enter_water() -> void:
   is_in_water = true

@@ -3,6 +3,7 @@ extends Node2D
 var force := Vector2.ZERO
 
 func _draw() -> void:
+  draw_line(Vector2.ZERO, force, Color.red)
   $RayCast2D.cast_to = force
   # TODO: Recursive function that draws a line for each force's bounce normal
 

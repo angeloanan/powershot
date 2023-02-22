@@ -17,6 +17,7 @@ loop = true
 [node name="Waterball" type="Area2D"]
 collision_layer = 2
 script = ExtResource( 2 )
+PowerUpType = "water_ball"
 
 [node name="Waterball" type="Sprite" parent="."]
 texture = ExtResource( 1 )

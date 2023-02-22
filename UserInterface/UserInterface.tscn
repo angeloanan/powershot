@@ -11,9 +11,9 @@ script = ExtResource( 2 )
 [node name="StrokeNumber" type="Label" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -184.0
+margin_left = -312.0
 margin_top = 40.0
-margin_right = -4.0
+margin_right = -36.0
 margin_bottom = 65.0
 theme = ExtResource( 1 )
 text = "Stroke %s"
@@ -22,9 +22,9 @@ align = 2
 [node name="StrokeTotal" type="Label" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -184.0
+margin_left = -304.0
 margin_top = 72.0
-margin_right = -4.0
+margin_right = -36.0
 margin_bottom = 97.0
 theme = ExtResource( 1 )
 text = "Total: %s"
