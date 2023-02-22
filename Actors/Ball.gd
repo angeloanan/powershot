@@ -1,9 +1,14 @@
 extends KinematicBody2D
 
-var MAX_SHOOTING_POWER := 600
-var MAX_CHARGING_TIME := 3_000
+export var MAX_SHOOTING_POWER := 600
+
+# Maximum amount of time player can charge (in ms)
+export var MAX_CHARGING_TIME := 3_000
+
 var velocity := Vector2.ZERO
 var speed_modifier := 1.0
+
+var is_in_water := false
 
 var printed := true
 var is_charging := false
@@ -74,8 +79,14 @@ func set_speed_modifier(speed: float) -> void:
   speed_modifier = speed
 
 func on_enter_sand(_body: Node) -> void:
-  set_speed_modifier(0.9)
+  set_speed_modifier(0.95)
   
   
 func on_leave_sand(_body:Node) -> void:
   set_speed_modifier(1.0)
+
+func on_enter_water() -> void:
+  is_in_water = true
+
+func on_leave_water() -> void:
+  is_in_water = false
