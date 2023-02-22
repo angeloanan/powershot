@@ -3,11 +3,11 @@
 const int JOYSTICK_Y = A0;
 const int RANGE_SENSOR = 13;
 
-const int BUTTON_COIN = 7;
+const int BUTTON_COIN = 21;
 
-const int CAMERA_CW = 21;
-const int CAMERA_CCW = 20;
-const int CAMERA_PRECISE = 19;
+const int CAMERA_CW = 18;
+const int CAMERA_CCW = 19;
+const int CAMERA_PRECISE = 20;
 
 const int LED1 = 10;
 const int LED2 = 11;
@@ -36,9 +36,10 @@ void setup() {
 }
 
 void loop() {
-  buttonStates[0] = digitalRead(CAMERA_CW);
-  buttonStates[1] = digitalRead(CAMERA_CCW);
-  buttonStates[2] = digitalRead(CAMERA_PRECISE);
+  // Inverted because buttons /shrug
+  buttonStates[0] = !digitalRead(CAMERA_CW);
+  buttonStates[1] = !digitalRead(CAMERA_CCW);
+  buttonStates[2] = !digitalRead(CAMERA_PRECISE);
 
   // Get joystick coords
   joystickCoords[1] = analogRead(JOYSTICK_Y);
@@ -72,23 +73,14 @@ void loop() {
 }
 
 void debugPrint() {
-  Serial.print("A:");
+  Serial.print("CAMERA_CW:");
   Serial.print(buttonStates[0]);
-  Serial.print(" B:");
+  Serial.print(" CAMERA_CCW:");
   Serial.print(buttonStates[1]);
-  Serial.print(" X:");
+  Serial.print(" CAMERA_PRECISE:");
   Serial.print(buttonStates[2]);
-  Serial.print(" Y:");
-  Serial.print(buttonStates[3]);
-  Serial.print(" START:");
-  Serial.print(buttonStates[4]);
-  Serial.print(" SELECT:");
-  Serial.print(buttonStates[5]);
-  Serial.print(" JOYSTICK:");
-  Serial.print(buttonStates[6]);
-  Serial.print(" X:");
-  Serial.print(joystickCoords[0]);
-  Serial.print(" Y:");
+
+  Serial.print(" JOYSTICK_Y:");
   Serial.println(joystickCoords[1]);
 }
 
