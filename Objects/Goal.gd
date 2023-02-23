@@ -5,6 +5,7 @@ signal goal_enter
 export var NEXT_SCENE: PackedScene
 
 onready var ball_enter_audio = $BallEnterAudio
+onready var golf_clap_audio = $GolfClapAudio
 
 func _get_configuration_warning() -> String:
   if NEXT_SCENE == null:
@@ -14,7 +15,17 @@ func _get_configuration_warning() -> String:
 func _on_body_entered(body: Node) -> void:
   RoundStatus.is_goal = true
   ball_enter_audio.play()
-  yield(ball_enter_audio, "finished")
+
+  var delay := Timer.new()
+  add_child(delay)
+  delay.wait_time = 0.5
+  delay.one_shot = true
+  delay.start()
+
+  yield(delay, "timeout")
+
+  golf_clap_audio.play()
+  yield(golf_clap_audio, "finished")
 
   teleport()
 
