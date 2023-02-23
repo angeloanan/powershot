@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Actors/Ball.gd" type="Script" id=1]
 [ext_resource path="res://assets/Ball.png" type="Texture" id=2]
 [ext_resource path="res://Actors/BallVector.gd" type="Script" id=3]
+[ext_resource path="res://Audio/putt.wav" type="AudioStream" id=4]
+[ext_resource path="res://Audio/bounce.wav" type="AudioStream" id=5]
+[ext_resource path="res://Audio/ball_charge.wav" type="AudioStream" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 9.0
@@ -27,3 +30,14 @@ script = ExtResource( 3 )
 
 [node name="RayCast2D" type="RayCast2D" parent="BallVector"]
 collision_mask = 4
+
+[node name="PuttAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="BounceAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = 24.0
+
+[node name="ChargeAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -15.0

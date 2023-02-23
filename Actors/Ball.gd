@@ -25,12 +25,13 @@ func _physics_process(_delta: float) -> void:
   # Detect input
   if Input.is_action_pressed("ball_charge") && !is_moving:
     if (!is_charging): # Store time on first press (charging_time)
+      $ChargeAudio.play()
       charging_time = OS.get_ticks_msec()
       is_charging = true
     else:
       var current_force = calculate_force(OS.get_ticks_msec() - charging_time)
       var ball_vector_divisor: int
-
+      
       if BallData.power_ball: 
         ball_vector_divisor = 2
       else:
@@ -43,6 +44,9 @@ func _physics_process(_delta: float) -> void:
     var force = calculate_force(OS.get_ticks_msec() - charging_time)
     if BallData.power_ball:
       force *= 2
+
+    $ChargeAudio.stop()
+    $PuttAudio.play()
 
     print("")
     print("Shooting!")
@@ -78,6 +82,11 @@ func _physics_process(_delta: float) -> void:
     var collision = get_slide_collision(0)
     velocity = velocity.bounce(collision.normal)
     print("Bonk! Velocity:" + String(velocity))
+
+    $BounceAudio.volume_db = lerp(-20, 0, velocity.length() / 600)
+    $BounceAudio.play()
+    velocity *= (0.999)
+
 
   velocity *= (0.99 * speed_modifier)
 
