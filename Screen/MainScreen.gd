@@ -11,6 +11,7 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
   if event.is_action_pressed("coin_add"):
+    $"Insert Coin".text = "1 CREDIT(s)"
     coin_insert_audio.play()
     anim_player.play("CoinBlinkFast")
     yield(coin_insert_audio, "finished")
