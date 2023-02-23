@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/ui_theme.tres" type="Theme" id=1]
 [ext_resource path="res://Screen/MainScreen.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "CoinBlink"
@@ -38,15 +39,17 @@ tracks/0/keys = {
 [node name="MainMenuScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -8.0
+margin_bottom = -8.0
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="Title" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -204.0
+margin_left = -240.0
 margin_top = 64.0
-margin_right = 204.0
+margin_right = 240.0
 margin_bottom = 104.0
 theme = ExtResource( 1 )
 text = "Power Shot"
@@ -59,13 +62,28 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -312.0
-margin_top = -48.0
-margin_right = -16.0
-margin_bottom = -16.0
+margin_left = 168.0
+margin_top = 592.0
+margin_right = 464.0
+margin_bottom = 624.0
 text = "INSERT COIN..."
 align = 2
 valign = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+
+[node name="Icon" type="Sprite" parent="CenterContainer"]
+position = Vector2( 20, 20 )
+scale = Vector2( 0.596, 0.596 )
+texture = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/CoinBlink = SubResource( 1 )

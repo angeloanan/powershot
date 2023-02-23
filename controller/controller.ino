@@ -3,7 +3,7 @@
 const int JOYSTICK_Y = A0;
 const int RANGE_SENSOR = 13;
 
-const int BUTTON_COIN = 21;
+const int BUTTON_COIN = 9;
 
 const int CAMERA_CW = 18;
 const int CAMERA_CCW = 19;
@@ -78,11 +78,14 @@ void loop() {
   }
 
   // Handle range
-  if (range < 10) {
+  if (range >= 13) {
     Keyboard.press(KEY_DOWN_ARROW);
   } else {
     Keyboard.release(KEY_DOWN_ARROW);
   }
+
+  Serial.print("RANGE: ");
+  Serial.println(range);
 
   // Optional - Just makes input stabler
   delay(1);
