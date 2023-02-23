@@ -32,7 +32,7 @@ theme = ExtResource( 1 )
 text = "Total: %s"
 align = 2
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="PowerMeter" type="ColorRect" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 32.0

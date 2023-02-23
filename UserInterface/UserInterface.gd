@@ -17,3 +17,8 @@ func update_interface() -> void:
   $PowerUpIcons/Powerball.visible = BallData.power_ball
   $PowerUpIcons/Waterball.visible = BallData.water_ball
 
+func hide_power_meter() -> void:
+  $PowerMeter.visible = false
+
+func show_power_meter() -> void:
+  $PowerMeter.visible = true

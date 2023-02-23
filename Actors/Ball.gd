@@ -36,9 +36,7 @@ func _physics_process(_delta: float) -> void:
       else:
         ball_vector_divisor = 5
       
-      
       $BallVector.update_force(Vector2(current_force / ball_vector_divisor, 0).rotated(deg2rad($Camera2D.rotation_degrees - 90)))
-      print("Charging: " + String(current_force))
     
   if Input.is_action_just_released("ball_charge") && !is_moving:
     var camera_rotation = $Camera2D.rotation_degrees - 90
@@ -58,6 +56,7 @@ func _physics_process(_delta: float) -> void:
     is_charging = false
 
     # Cleanup side effects
+    # Cleanup ball vector
     $BallVector.update_force(Vector2.ZERO)
 
 
@@ -91,7 +90,7 @@ func _physics_process(_delta: float) -> void:
       BallData.stroke_count += 2
       self.global_position = initial_position
       
-      print("Ball in water! Resetting stroke count")
+      print("Ball in water and no water ball! Resetting stroke count")
       print("")
     
     velocity = Vector2.ZERO
@@ -112,8 +111,12 @@ func set_speed_modifier(speed: float) -> void:
 
 # Sand
 
+# Careful for side effects of power_ball running out.
 func on_enter_sand(_body: Node) -> void:
-  set_speed_modifier(0.95)
+  if BallData.power_ball:
+    set_speed_modifier(0.98)
+  else:
+    set_speed_modifier(0.95)
   
 func on_leave_sand(_body:Node) -> void:
   set_speed_modifier(1.0)
