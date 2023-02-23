@@ -12,7 +12,7 @@ func _ready() -> void:
   update_interface()
 
 func update_interface() -> void:
-  stroke_number.text = "Stroke: %s" % BallData.stroke_count
+  stroke_number.text = "Stroke %s" % BallData.stroke_count
   stroke_total.text = "Total: %s" % BallData.stroke_total
   $PowerUpIcons/Powerball.visible = BallData.power_ball
   $PowerUpIcons/Waterball.visible = BallData.water_ball
