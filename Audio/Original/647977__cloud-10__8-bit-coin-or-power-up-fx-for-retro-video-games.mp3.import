@@ -2,12 +2,12 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/647977__cloud-10__8-bit-coin-or-power-up-fx-for-retro-video-games.mp3-8a4e6f988edd7e500fa0155078901c6e.mp3str"
+path="res://.import/647977__cloud-10__8-bit-coin-or-power-up-fx-for-retro-video-games.mp3-2eb4a952bc7d7f4266b788c380c70490.mp3str"
 
 [deps]
 
-source_file="res://Audio/647977__cloud-10__8-bit-coin-or-power-up-fx-for-retro-video-games.mp3"
-dest_files=[ "res://.import/647977__cloud-10__8-bit-coin-or-power-up-fx-for-retro-video-games.mp3-8a4e6f988edd7e500fa0155078901c6e.mp3str" ]
+source_file="res://Audio/Original/647977__cloud-10__8-bit-coin-or-power-up-fx-for-retro-video-games.mp3"
+dest_files=[ "res://.import/647977__cloud-10__8-bit-coin-or-power-up-fx-for-retro-video-games.mp3-2eb4a952bc7d7f4266b788c380c70490.mp3str" ]
 
 [params]
 

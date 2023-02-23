@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/610361__brickdeveloper171__charge-up.wav-9458da72cb83dc9592299c3f766a73dd.sample"
+path="res://.import/610361__brickdeveloper171__charge-up.wav-127e1e6a07c416e079acd07cb9b34a15.sample"
 
 [deps]
 
-source_file="res://Audio/610361__brickdeveloper171__charge-up.wav"
-dest_files=[ "res://.import/610361__brickdeveloper171__charge-up.wav-9458da72cb83dc9592299c3f766a73dd.sample" ]
+source_file="res://Audio/Original/610361__brickdeveloper171__charge-up.wav"
+dest_files=[ "res://.import/610361__brickdeveloper171__charge-up.wav-127e1e6a07c416e079acd07cb9b34a15.sample" ]
 
 [params]
 

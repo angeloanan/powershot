@@ -115,6 +115,7 @@ scale = Vector2( 0.596, 0.596 )
 texture = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "CoinBlink"
 anims/CoinBlink = SubResource( 1 )
 anims/CoinBlinkFast = SubResource( 3 )
 anims/RESET = SubResource( 2 )

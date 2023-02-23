@@ -48,8 +48,6 @@ tile_data = PoolIntArray( -1966064, 1, 0, -1966063, 0, 0, -1966062, 0, 0, -19660
 
 [node name="Ball" parent="." instance=ExtResource( 1 )]
 position = Vector2( 240, -168 )
-MAX_SHOOTING_POWER = null
-MAX_CHARGING_TIME = null
 
 [node name="Goal" parent="." instance=ExtResource( 5 )]
 position = Vector2( 704, -640 )
@@ -74,3 +72,4 @@ one_shot = true
 
 [connection signal="body_entered" from="SandArea" to="Ball" method="on_enter_sand"]
 [connection signal="body_exited" from="SandArea" to="Ball" method="on_leave_sand"]
+[connection signal="body_entered" from="Goal" to="Ball" method="on_enter_hole"]

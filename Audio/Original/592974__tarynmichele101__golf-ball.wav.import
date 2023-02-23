@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/592974__tarynmichele101__golf-ball.wav-e86c85b176c75e451d99af7efce7fc83.sample"
+path="res://.import/592974__tarynmichele101__golf-ball.wav-9fea7e30ea4e912e93e1a37a984b319b.sample"
 
 [deps]
 
-source_file="res://Audio/592974__tarynmichele101__golf-ball.wav"
-dest_files=[ "res://.import/592974__tarynmichele101__golf-ball.wav-e86c85b176c75e451d99af7efce7fc83.sample" ]
+source_file="res://Audio/Original/592974__tarynmichele101__golf-ball.wav"
+dest_files=[ "res://.import/592974__tarynmichele101__golf-ball.wav-9fea7e30ea4e912e93e1a37a984b319b.sample" ]
 
 [params]
 

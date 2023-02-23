@@ -6,7 +6,7 @@ signal power_ball_update
 signal water_ball_update
 
 # The number of strokes the player has taken in the whole game
-var stroke_total := 1 setget set_stroke_total
+var stroke_total := 0 setget set_stroke_total
 
 # The number of strokes the player has taken in the current hole
 var stroke_count := 1 setget set_stroke_count
@@ -34,7 +34,7 @@ func set_power_ball(state: bool) -> void:
 # ----
 
 func reset() -> void:
-  stroke_total = 1
+  stroke_total = 0
   stroke_count = 1
   
 func round_reset() -> void:

@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/441688__jjdg__ambience-next-to-lake.wav-fdfd3a28d14b31e3ecbec2b8223548b1.sample"
+path="res://.import/441688__jjdg__ambience-next-to-lake.wav-e9c56baf5120bd8d12d6de5ef10e5da4.sample"
 
 [deps]
 
-source_file="res://Audio/441688__jjdg__ambience-next-to-lake.wav"
-dest_files=[ "res://.import/441688__jjdg__ambience-next-to-lake.wav-fdfd3a28d14b31e3ecbec2b8223548b1.sample" ]
+source_file="res://Audio/Original/441688__jjdg__ambience-next-to-lake.wav"
+dest_files=[ "res://.import/441688__jjdg__ambience-next-to-lake.wav-e9c56baf5120bd8d12d6de5ef10e5da4.sample" ]
 
 [params]
 

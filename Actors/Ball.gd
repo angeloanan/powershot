@@ -18,6 +18,9 @@ var charging_time: int
 
 var is_precise_button_pressed := false
 
+func _ready() -> void:
+  RoundStatus.connect("goal_enter", self, "on_enter_hole")
+
 func _physics_process(_delta: float) -> void:
   # Clamping minimum speed to 2 px per sec
   var is_moving := velocity.length() > 5
@@ -60,6 +63,8 @@ func _physics_process(_delta: float) -> void:
     is_charging = false
 
     # Cleanup side effects
+    # Add stroke total
+    BallData.stroke_total += 1;
     # Cleanup ball vector
     $BallVector.update_force(Vector2.ZERO)
 
@@ -91,9 +96,9 @@ func _physics_process(_delta: float) -> void:
   velocity *= (0.99 * speed_modifier)
 
   # When ball has stopped moving for the first time
-  if !is_moving && !printed:
+  if !is_moving && !printed && !RoundStatus.is_goal:
+    $YourTurnAudio.play()
     BallData.stroke_count += 1;
-    BallData.stroke_total += 1;
     print("")
     print("Not moving!")
     print("Final velocity : " + String(velocity))
@@ -144,3 +149,9 @@ func on_enter_water() -> void:
 
 func on_leave_water() -> void:
   is_in_water = false
+
+# Enter Hole
+func on_enter_hole() -> void:
+  print("Ball entered hole")
+  velocity = Vector2.ZERO
+  self.visible = false

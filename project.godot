@@ -101,6 +101,7 @@ mix_rate=48000
 
 [autoload]
 
+RoundStatus="*res://Autoload/RoundStatus.tscn"
 BallData="*res://Autoload/BallData.tscn"
 
 [display]

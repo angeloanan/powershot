@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/365789__gareth_h__golf-putt.wav-e35345da7d6fc39930161c89807d5d6c.sample"
+path="res://.import/365789__gareth_h__golf-putt.wav-f37271b74e06bacb03575ba0a38a8cf5.sample"
 
 [deps]
 
-source_file="res://Audio/365789__gareth_h__golf-putt.wav"
-dest_files=[ "res://.import/365789__gareth_h__golf-putt.wav-e35345da7d6fc39930161c89807d5d6c.sample" ]
+source_file="res://Audio/Original/365789__gareth_h__golf-putt.wav"
+dest_files=[ "res://.import/365789__gareth_h__golf-putt.wav-f37271b74e06bacb03575ba0a38a8cf5.sample" ]
 
 [params]
 

@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/366597__jittels__golf-ball-bounce.wav-c9604c0f8afcef080749ed86b3d6013c.sample"
+path="res://.import/366597__jittels__golf-ball-bounce.wav-59618aa29d513ddffc2f10fe2bc432a9.sample"
 
 [deps]
 
-source_file="res://Audio/366597__jittels__golf-ball-bounce.wav"
-dest_files=[ "res://.import/366597__jittels__golf-ball-bounce.wav-c9604c0f8afcef080749ed86b3d6013c.sample" ]
+source_file="res://Audio/Original/366597__jittels__golf-ball-bounce.wav"
+dest_files=[ "res://.import/366597__jittels__golf-ball-bounce.wav-59618aa29d513ddffc2f10fe2bc432a9.sample" ]
 
 [params]
 
