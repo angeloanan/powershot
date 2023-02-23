@@ -26,7 +26,7 @@ func _physics_process(_delta: float) -> void:
   var is_moving := velocity.length() > 5
   
   # Detect input
-  if Input.is_action_pressed("ball_charge") && !is_moving:
+  if Input.is_action_pressed("ball_charge") && !is_moving && RoundStatus.is_goal:
     if (!is_charging): # Store time on first press (charging_time)
       $ChargeAudio.play()
       charging_time = OS.get_ticks_msec()

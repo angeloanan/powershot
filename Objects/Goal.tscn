@@ -1,9 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/Goal.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Goal.gd" type="Script" id=2]
 [ext_resource path="res://Audio/hole.wav" type="AudioStream" id=3]
 [ext_resource path="res://Audio/goal_clap.wav" type="AudioStream" id=4]
+[ext_resource path="res://Audio/Score/par.wav" type="AudioStream" id=5]
+[ext_resource path="res://Audio/Score/bogey.wav" type="AudioStream" id=6]
+[ext_resource path="res://Audio/Score/birdie.wav" type="AudioStream" id=7]
+[ext_resource path="res://Audio/Score/albatross.wav" type="AudioStream" id=8]
+[ext_resource path="res://Audio/Score/double bogey.wav" type="AudioStream" id=9]
+[ext_resource path="res://Audio/Score/eagle.wav" type="AudioStream" id=10]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 8.0
@@ -24,5 +30,29 @@ stream = ExtResource( 3 )
 
 [node name="GolfClapAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+
+[node name="ScoreAudio" type="Node" parent="."]
+
+[node name="HoleInOne" type="AudioStreamPlayer" parent="ScoreAudio"]
+
+[node name="Albatross" type="AudioStreamPlayer" parent="ScoreAudio"]
+stream = ExtResource( 8 )
+
+[node name="Eagle" type="AudioStreamPlayer" parent="ScoreAudio"]
+stream = ExtResource( 10 )
+
+[node name="Birdie" type="AudioStreamPlayer" parent="ScoreAudio"]
+stream = ExtResource( 7 )
+
+[node name="Par" type="AudioStreamPlayer" parent="ScoreAudio"]
+stream = ExtResource( 5 )
+
+[node name="Bogey" type="AudioStreamPlayer" parent="ScoreAudio"]
+stream = ExtResource( 6 )
+
+[node name="DoubleBogey" type="AudioStreamPlayer" parent="ScoreAudio"]
+stream = ExtResource( 9 )
+
+[node name="TripleBogey" type="AudioStreamPlayer" parent="ScoreAudio"]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

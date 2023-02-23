@@ -13,6 +13,7 @@
 
 [node name="LevelTemplate" type="Node2D"]
 script = ExtResource( 6 )
+par = 4
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
 

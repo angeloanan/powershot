@@ -160,6 +160,7 @@ resource_name = "Wall"
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 6 )
+par = 2
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
 
