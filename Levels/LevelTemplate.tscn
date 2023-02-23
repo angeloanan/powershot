@@ -72,4 +72,6 @@ one_shot = true
 
 [connection signal="body_entered" from="SandArea" to="Ball" method="on_enter_sand"]
 [connection signal="body_exited" from="SandArea" to="Ball" method="on_leave_sand"]
+[connection signal="body_entered" from="WaterArea" to="Ball" method="on_enter_water"]
+[connection signal="body_exited" from="WaterArea" to="Ball" method="on_leave_water"]
 [connection signal="body_entered" from="Goal" to="Ball" method="on_enter_hole"]

@@ -22,3 +22,4 @@ func hide_power_meter() -> void:
 
 func show_power_meter() -> void:
   $PowerMeter.visible = true
+
