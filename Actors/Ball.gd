@@ -61,11 +61,18 @@ func _physics_process(_delta: float) -> void:
 
 
   # Handle Camera
-  if Input.is_action_pressed("camera_cw"):
-    $Camera2D.rotate(deg2rad(1))
-  if Input.is_action_pressed("camera_ccw"):
-    $Camera2D.rotate(deg2rad(-1))
+  if Input.is_action_pressed("camera_precise"):
+    if Input.is_action_pressed("camera_cw"):
+      $Camera2D.rotate(deg2rad(0.1))
+    if Input.is_action_pressed("camera_ccw"):
+      $Camera2D.rotate(deg2rad(-0.1))
+  else: 
+    if Input.is_action_pressed("camera_cw"):
+      $Camera2D.rotate(deg2rad(1))
+    if Input.is_action_pressed("camera_ccw"):
+      $Camera2D.rotate(deg2rad(-1))
 
+      
   # Handle ball bounce
   if get_slide_count() > 0:
     var collision = get_slide_collision(0)

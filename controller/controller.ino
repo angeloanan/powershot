@@ -13,8 +13,8 @@ const int LED1 = 10;
 const int LED2 = 11;
 const int LED3 = 12;
 
-// Camera CW, Camera CCW, Camera Precise
-bool buttonStates[3] = {false, false, false};
+// Camera CW, Camera CCW, Camera Precise, Insert coin
+bool buttonStates[4] = {false, false, false, false};
 int joystickCoords[1] = {0};
 bool isOn = false;
 
@@ -44,7 +44,7 @@ void loop() {
   // Get joystick coords
   joystickCoords[1] = analogRead(JOYSTICK_Y);
 
-  // long range = calculateRangeCm();
+  long range = calculateRangeCm();
 
   if (buttonStates[0]) {
     Keyboard.press(KEY_RIGHT_ARROW);
@@ -52,16 +52,36 @@ void loop() {
     Keyboard.release(KEY_RIGHT_ARROW);
   }
 
-  if (buttonStates[3]) {
+  if (buttonStates[1]) {
     Keyboard.press(KEY_LEFT_ARROW);
   } else {
     Keyboard.release(KEY_LEFT_ARROW);
+  }
+
+  if (buttonStates[2]) {
+    Keyboard.press(KEY_UP_ARROW);
+  } else {
+    Keyboard.release(KEY_UP_ARROW);
+  }
+
+  // Insert Coin
+  if (buttonStates[3]) {
+    Keyboard.press(KEY_RETURN);
+  } else {
+    Keyboard.release(KEY_RETURN);
   }
 
   if (joystickCoords[1] > 800) {
     Keyboard.press(KEY_UP_ARROW);
   } else {
     Keyboard.release(KEY_UP_ARROW);
+  }
+
+  // Handle range
+  if (range < 10) {
+    Keyboard.press(KEY_DOWN_ARROW);
+  } else {
+    Keyboard.release(KEY_DOWN_ARROW);
   }
 
   // Optional - Just makes input stabler
@@ -79,6 +99,8 @@ void debugPrint() {
   Serial.print(buttonStates[1]);
   Serial.print(" CAMERA_PRECISE:");
   Serial.print(buttonStates[2]);
+  Serial.print(" INSERT_COIN:");
+  Serial.print(buttonStates[3]);
 
   Serial.print(" JOYSTICK_Y:");
   Serial.println(joystickCoords[1]);
