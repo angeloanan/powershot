@@ -48,7 +48,8 @@ func _on_body_entered(body: Node) -> void:
   elif relative_score == -3:
     score_audio = $ScoreAudio/Albatross
   
-  score_audio.play()
+  if score_audio != null:
+    score_audio.play()
 
   yield(golf_clap_audio, "finished")
 
