@@ -144,10 +144,12 @@ func on_leave_sand(_body:Node) -> void:
 
 # Water
 
-func on_enter_water() -> void:
+# I
+  
+func on_enter_water(_body: Node) -> void:
   is_in_water = true
-
-func on_leave_water() -> void:
+  
+func on_leave_water(_body: Node) -> void:
   is_in_water = false
 
 # Enter Hole
