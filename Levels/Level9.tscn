@@ -61,18 +61,16 @@ position = Vector2( 311, -548 )
 position = Vector2( 312, -1484 )
 NEXT_SCENE = ExtResource( 4 )
 
-[node name="PowerUpTimer" type="Timer" parent="."]
-one_shot = true
-
-[node name="PowerUp2" type="Node" parent="."]
-
-[node name="Powerball" parent="PowerUp2" instance=ExtResource( 11 )]
-position = Vector2( 274, -1120 )
-
 [node name="PowerUp" type="Node" parent="."]
 
 [node name="Powerball" parent="PowerUp" instance=ExtResource( 11 )]
 position = Vector2( 356, -1121 )
+
+[node name="Powerball2" parent="PowerUp" instance=ExtResource( 11 )]
+position = Vector2( 274, -1120 )
+
+[node name="PowerUpTimer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="body_entered" from="SandArea" to="Ball" method="on_enter_sand"]
 [connection signal="body_exited" from="SandArea" to="Ball" method="on_leave_sand"]
