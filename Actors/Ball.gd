@@ -43,6 +43,12 @@ func _physics_process(_delta: float) -> void:
       $BallVector.update_force(Vector2(current_force / ball_vector_divisor, 0).rotated(deg2rad($Camera2D.rotation_degrees - 90)))
     
   if Input.is_action_just_released("ball_charge") && !is_moving:
+    if calculate_force(OS.get_ticks_msec() - charging_time) <= 10:
+      $ChargeAudio.stop()
+      $BallVector.update_force(Vector2.ZERO)
+      is_charging = false
+      return
+    
     var camera_rotation = $Camera2D.rotation_degrees - 90
     var force = calculate_force(OS.get_ticks_msec() - charging_time)
     if BallData.power_ball:

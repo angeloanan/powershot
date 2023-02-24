@@ -3,7 +3,7 @@
 const int JOYSTICK_Y = A0;
 const int RANGE_SENSOR = 13;
 
-const int BUTTON_COIN = 9;
+const int BUTTON_COIN = 21;
 
 const int CAMERA_CW = 18;
 const int CAMERA_CCW = 19;
@@ -25,6 +25,8 @@ void setup() {
   pinMode(CAMERA_CCW, INPUT);
   pinMode(CAMERA_PRECISE, INPUT);
 
+  pinMode(BUTTON_COIN, INPUT_PULLUP);
+
   pinMode(LED1, OUTPUT);
   pinMode(LED2, OUTPUT);
   pinMode(LED3, OUTPUT);
@@ -40,6 +42,7 @@ void loop() {
   buttonStates[0] = !digitalRead(CAMERA_CW);
   buttonStates[1] = !digitalRead(CAMERA_CCW);
   buttonStates[2] = !digitalRead(CAMERA_PRECISE);
+  buttonStates[3] = !digitalRead(BUTTON_COIN);
 
   // Get joystick coords
   joystickCoords[1] = analogRead(JOYSTICK_Y);
@@ -88,7 +91,7 @@ void loop() {
   Serial.println(range);
 
   // Optional - Just makes input stabler
-  delay(1);
+  delay(50);
 
   // debugPrint();
   // Serial.print("Range:");
@@ -122,6 +125,7 @@ long calculateRangeCm() {
 
   // convert the time into a distance
   long inches = microsecondsToInches(duration);
+
   long cm = microsecondsToCentimeters(duration);
 
   return cm;
