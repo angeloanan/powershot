@@ -22,7 +22,7 @@ text = "Stroke %s"
 align = 2
 uppercase = true
 
-[node name="StrokeTotal" type="Label" parent="."]
+[node name="ParCount" type="Label" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -304.0
@@ -30,7 +30,7 @@ margin_top = 72.0
 margin_right = -36.0
 margin_bottom = 97.0
 theme = ExtResource( 1 )
-text = "Total: %s"
+text = "PAR %s"
 align = 2
 uppercase = true
 
